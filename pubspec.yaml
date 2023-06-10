@@ -3,16 +3,19 @@ description: A Video Player that support videos from Vimeo platform in Flutter. 
 version: 0.0.10
 repository: https://github.com/Mindinventory/vimeo_video_player
 issue_tracker: https://github.com/Mindinventory/vimeo_video_player/issues
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=3.0.3 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   dio: ^5.2.0
-  flick_video_player: ^0.5.0
+  flick_video_player:
+   git:
+    url: https://github.com/tusharbhambere/flutter_flick_player.git
   video_player: ^2.6.1
 
 dev_dependencies:

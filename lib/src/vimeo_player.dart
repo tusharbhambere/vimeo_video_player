@@ -34,6 +34,12 @@ class VimeoVideoPlayer extends StatefulWidget {
   /// to auto-play the video once initialized
   final bool autoPlay;
 
+  //flickVideoWithControls
+  final Widget flickVideoWithControls;
+
+  //flickVideoWithControlsFullscreen
+  final Widget flickVideoWithControlsFullscreen;
+
   const VimeoVideoPlayer({
     required this.url,
     this.systemUiOverlay = const [
@@ -49,6 +55,13 @@ class VimeoVideoPlayer extends StatefulWidget {
     this.startAt,
     this.onProgress,
     this.onFinished,
+    this.flickVideoWithControls = const FlickVideoWithControls(
+      videoFit: BoxFit.fitWidth,
+      controls: FlickPortraitControls(),
+    ),
+    this.flickVideoWithControlsFullscreen = const FlickVideoWithControls(
+      controls: FlickLandscapeControls(),
+    ),
     this.autoPlay = false,
     Key? key,
   }) : super(key: key);
@@ -202,14 +215,9 @@ class _VimeoVideoPlayerState extends State<VimeoVideoPlayer> {
                     ),
                 systemUIOverlay: widget.systemUiOverlay,
                 preferredDeviceOrientation: widget.deviceOrientation,
-                flickVideoWithControls: const FlickVideoWithControls(
-                  videoFit: BoxFit.fitWidth,
-                  controls: FlickPortraitControls(),
-                ),
-                flickVideoWithControlsFullscreen: const FlickVideoWithControls(
-                  controls: FlickLandscapeControls(),
-                ),
-              )
+                flickVideoWithControls: widget.flickVideoWithControls,
+                flickVideoWithControlsFullscreen:
+                    widget.flickVideoWithControlsFullscreen)
             : const Center(
                 child: CircularProgressIndicator(
                   color: Colors.grey,
